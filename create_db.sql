@@ -123,6 +123,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`personal_informations` (
   `date_of_birth` DATE NOT NULL,
   `social_security_number` VARCHAR(45) NOT NULL,
   `employees_id` INT NOT NULL,
+  `first_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `date_of_employment_UNIQUE` (`date_of_employment` ASC),
   INDEX `fk_personal_informations_employees1_idx` (`employees_id` ASC),
@@ -199,6 +201,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`projects` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `cost` INT NULL,
+  `date_of_delivery` DATE NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -212,6 +215,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`votes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `votable_type` VARCHAR(45) NULL,
   `votable_id` INT NULL,
+  `vote_weight` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_votes_employees1_idx` (`votable_id` ASC),
   CONSTRAINT `fk_votes_employees1`
